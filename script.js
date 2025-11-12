@@ -42,7 +42,7 @@ const shoebillContent = [
         fact: "They are generally silent, but they make a loud, characteristic clattering sound with their bills, often during courtship." 
     },
     { 
-        img: "https://nplimages.infradoxxs.com/cache/pcache2/01426240.jpg", 
+        img: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnplimages.infradoxxs.com%2Fcache%2Fpcache2%2F01426240.jpg&f=1&nofb=1&ipt=31ed3457511ea523c06a6666fffd0730333cd92cbe509d9013ea7e11c290ba25", 
         fact: "Shoebill chicks are usually hatched in pairs, but the stronger chick often outcompetes its sibling for food." 
     },
     { 
