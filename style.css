@@ -2,8 +2,8 @@
     --bg-color: #1a1c1e;
     --card-bg: #25282a;
     --accent: #a7c957; /* Mossy Green */
+    --sound-accent: #6b9ac4; /* Muted Blue for sound */
     --text-main: #e0e0e0;
-    --text-dim: #a0a0a0;
 }
 
 body {
@@ -15,10 +15,9 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-/* Subtly animated background */
 .background-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -32,11 +31,10 @@ body {
     max-width: 600px;
     text-align: center;
     z-index: 1;
+    padding: 20px 0;
 }
 
-header {
-    margin-bottom: 30px;
-}
+header { margin-bottom: 30px; }
 
 .subtitle {
     font-style: italic;
@@ -51,7 +49,6 @@ h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     margin: 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .card {
@@ -62,7 +59,6 @@ h1 {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* This class will be toggled in JS for a "fade" effect */
 .fade-out {
     opacity: 0;
     transform: translateY(10px);
@@ -70,15 +66,13 @@ h1 {
 
 .image-wrapper {
     position: relative;
-    height: 400px;
-    width: 100%;
+    height: 350px;
 }
 
 #shoebill-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%) contrast(1.1);
 }
 
 .counter {
@@ -94,44 +88,54 @@ h1 {
 
 .text-content {
     padding: 30px;
-    min-height: 100px;
+    min-height: 110px;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-#fun-fact {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-main);
-    margin: 0;
-}
-
-#next-button {
+.button-group {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
     background: none;
     border: 1px solid var(--accent);
     color: var(--accent);
-    padding: 12px 30px;
+    padding: 12px 25px;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 10px;
     transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+#sound-button {
+    border-color: var(--sound-accent);
+    color: var(--sound-accent);
 }
 
 #next-button:hover {
     background: var(--accent);
     color: var(--bg-color);
-    box-shadow: 0 0 20px rgba(167, 201, 87, 0.4);
 }
 
-#next-button .arrow {
-    transition: transform 0.3s ease;
+#sound-button:hover {
+    background: var(--sound-accent);
+    color: var(--bg-color);
 }
 
-#next-button:hover .arrow {
-    transform: translateX(5px);
+.speaker {
+    font-size: 1.1rem;
+}
+
+/* Subtle animation for the speaker icon */
+#sound-button:active .speaker {
+    transform: scale(1.4);
 }

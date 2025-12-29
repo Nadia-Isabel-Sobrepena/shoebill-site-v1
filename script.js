@@ -1,6 +1,8 @@
 const imageElement = document.getElementById('shoebill-image');
 const factElement = document.getElementById('fun-fact');
 const nextButton = document.getElementById('next-button');
+const soundButton = document.getElementById('sound-button');
+const audio = document.getElementById('shoebill-audio');
 const counterElement = document.getElementById('counter');
 const cardElement = document.getElementById('content-card');
 
@@ -58,40 +60,29 @@ const shoebillContent = [
 let currentIndex = 0;
 
 function updateContent() {
-    // Start the fade-out animation
     cardElement.classList.add('fade-out');
-
-    // Wait 400ms (matching the CSS transition) before swapping data
     setTimeout(() => {
         const content = shoebillContent[currentIndex];
         imageElement.src = content.img;
         factElement.textContent = content.fact;
-        
-        // Update the visual counter (e.g., "3 / 12")
-        if (counterElement) {
-            counterElement.textContent = `${currentIndex + 1} / ${shoebillContent.length}`;
-        }
-        
-        // Fade the card back in
+        counterElement.textContent = `${currentIndex + 1} / ${shoebillContent.length}`;
         cardElement.classList.remove('fade-out');
     }, 400);
 }
 
-function showNext() {
-    currentIndex = (currentIndex + 1) % shoebillContent.length;
-    updateContent();
+// Logic to play sound
+function playSound() {
+    // Reset sound to beginning if clicked repeatedly
+    audio.currentTime = 0; 
+    audio.play();
 }
 
-// Set initial content on page load
-// Using a slightly different approach for the first load so it doesn't "flash"
-const initialLoad = () => {
-    const content = shoebillContent[currentIndex];
-    imageElement.src = content.img;
-    factElement.textContent = content.fact;
-    counterElement.textContent = `1 / ${shoebillContent.length}`;
-};
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % shoebillContent.length;
+    updateContent();
+});
 
-initialLoad();
+soundButton.addEventListener('click', playSound);
 
-// Attach the event listener
-nextButton.addEventListener('click', showNext);
+// Initial Load
+updateContent();
