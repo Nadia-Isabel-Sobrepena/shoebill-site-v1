@@ -1,6 +1,6 @@
 # 👑 The Magnificent Shoebill Site
 
-https://magnificent-shoebill-site-v1.netlify.app/
+https://nadia-isabel-sobrepena.github.io/shoebill-site-v1/
 
 A simple, fun, and interactive static website dedicated to showcasing the incredibly unique Shoebill Stork (Balaeniceps rex).
 
